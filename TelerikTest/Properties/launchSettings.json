@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "TelerikTest (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "TelerikTest (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window x:Class="TelerikTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="using:TelerikTest"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+        mc:Ignorable="d"
+        Title="TelerikTest">
+
+    <Grid x:Name="MainGrid">
+        <NavigationView x:Name="MainNavigationMenu"
+                        Loaded="NavigationView_Loaded"
+                        ItemInvoked="NavigationView_ItemInvoked"
+                        BackRequested="NavigationView_BackRequested"
+                        OpenPaneLength="270"
+                        Margin="-1,0,0,-1"
+                        RequestedTheme="Dark"
+                        PaneDisplayMode="LeftCompact">
+            <NavigationView.Resources>
+                <AcrylicBrush x:Key="NavigationViewDefaultPaneBackground"
+                              TintColor="{ThemeResource SystemAccentColorDark1}"
+                              TintOpacity="0.7"
+                              FallbackColor="{ThemeResource SystemAccentColorDark1}" />
+                <AcrylicBrush x:Key="NavigationViewExpandedPaneBackground"
+                              TintColor="{ThemeResource SystemAccentColorDark1}"
+                              TintOpacity="0.9"
+                              FallbackColor="{ThemeResource SystemAccentColorDark1}" />
+                <CornerRadius x:Key="NavigationViewContentGridCornerRadius">0</CornerRadius>
+            </NavigationView.Resources>
+
+            <NavigationView.MenuItems>
+                <NavigationViewItem Tag="TelerikTest.HomePage"
+                                    Icon="Home"
+                                    Content="Home" />
+                <NavigationViewItem Tag="TelerikTest.RadDataGridPage"
+                                    Content="Summary">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE7C3;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+            </NavigationView.MenuItems>
+
+            <Frame x:Name="ContentFrame"
+                   VerticalAlignment="Stretch">
+                <Frame.ContentTransitions>
+                    <TransitionCollection>
+                        <NavigationThemeTransition>
+                            <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                                <DrillInNavigationTransitionInfo />
+                            </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                        </NavigationThemeTransition>
+                    </TransitionCollection>
+                </Frame.ContentTransitions>
+            </Frame>
+        </NavigationView>
+        
+    </Grid>
+    
+</Window>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page x:Class="TelerikTest.RadDataGridPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:TelerikTest"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:telerikGrid="using:Telerik.UI.Xaml.Controls.Grid"
+      xmlns:telerikCore="using:Telerik.Data.Core"
+      xmlns:gridPrimitives="using:Telerik.UI.Xaml.Controls.Grid.Primitives"
+      mc:Ignorable="d"
+      RequestedTheme="Light"
+      Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <RelativePanel>
+        <telerikGrid:RadDataGrid x:Name="DataGridList"
+                                 ItemsSource="{x:Bind TestObjects, Mode=OneWay}"
+                                 Background="{ThemeResource SystemControlAcrylicWindowBrush}"
+                                 BorderBrush="{ThemeResource ComboBoxDisabledBorderThemeBrush}"
+                                 BorderThickness="1"
+                                 ColumnResizeHandleDisplayMode="Always"
+                                 ColumnDataOperationsMode="Inline"
+                                 IsDoubleTapEnabled="True"
+                                 UserFilterMode="Disabled"
+                                 UserGroupMode="Disabled"
+                                 SelectionMode="Single"
+                                 SelectionUnit="Row"
+                                 Margin="10,10"
+                                 FontSize="12"
+                                 RowHeight="28"
+                                 GridLinesVisibility="Both"
+                                 UserEditMode="None"
+                                 UserColumnReorderMode="Interactive"
+                                 AutoGenerateColumns="False"
+                                 RelativePanel.AlignLeftWithPanel="True"
+                                 RelativePanel.AlignRightWithPanel="True">
+            <telerikGrid:RadDataGrid.Resources>
+                <Style TargetType="gridPrimitives:SelectionRegionBorderControl">
+                    <Setter Property="Background"
+                            Value="{ThemeResource SystemAccentColorLight1}" />
+                </Style>
+                <Style TargetType="gridPrimitives:SelectionRegionBackgroundControl">
+                    <Setter Property="Background"
+                            Value="{ThemeResource SystemAccentColorLight1}" />
+                </Style>
+            </telerikGrid:RadDataGrid.Resources>
+            <telerikGrid:RadDataGrid.Columns>
+                <telerikGrid:DataGridTextColumn Header="Name"
+                                                PropertyName="Name" />
+                <telerikGrid:DataGridTextColumn Header="Code"
+                                                PropertyName="Code" />
+
+            </telerikGrid:RadDataGrid.Columns>
+        </telerikGrid:RadDataGrid>
+    </RelativePanel>
+</Page>
